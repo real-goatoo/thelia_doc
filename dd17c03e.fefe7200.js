@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[50],{119:function(a){a.exports=JSON.parse('{"allTagsPath":"/thelia_doc/blog/tags","slug":"hola","name":"hola","count":1,"permalink":"/thelia_doc/blog/tags/hola"}')}}]);
