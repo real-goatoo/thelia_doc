@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkthelia=self.webpackChunkthelia||[]).push([[2535],{5641:function(e){e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Welcome","permalink":"/thelia_doc/blog/welcome"},{"title":"Hello","permalink":"/thelia_doc/blog/hello-world"},{"title":"Hola","permalink":"/thelia_doc/blog/hola"}]}')}}]);
