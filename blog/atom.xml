@@ -6,7 +6,7 @@
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://thelia.net/thelia_doc/blog"/>
     <subtitle>Thelia documentation Blog</subtitle>
-    <icon>https://thelia.net/thelia_doc/img/favicon.jpg</icon>
+    <icon>https://thelia.net/thelia_doc/img/favicon.png</icon>
     <entry>
         <title type="html"><![CDATA[Welcome]]></title>
         <id>welcome</id>

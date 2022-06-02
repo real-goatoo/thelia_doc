@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkthelia=self.webpackChunkthelia||[]).push([[5700],{2712:function(a){a.exports=JSON.parse('{"allTagsPath":"/thelia_doc/blog/tags","slug":"/thelia_doc/blog/tags/docusaurus","name":"docusaurus","count":3,"permalink":"/thelia_doc/blog/tags/docusaurus"}')}}]);
