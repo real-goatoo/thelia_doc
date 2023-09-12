@@ -2,7 +2,7 @@
 title: Generic
 ---
 
-Generic loop can return any table present in your database and configured with propel. This loop is often useful on your own module table because most of the Thelia table already have dedicated loop. 
+Generic loop can return any table present in your database and configured with propel. This loop is often useful on your own module table because most of the Thelia table already have dedicated loop.     
 `{loop type="generic" name="the-loop-name" [argument="value"], [...]}`
 
 ## Arguments {#area-arguments}
@@ -28,7 +28,7 @@ I want to display all products visible and not virtual sorted by creation date (
 
 ```smarty
 <ul>
-    {loop type="generic" name="my_product_loop" filters="visible:1|virtual:0" orders="created_at:DESC"}
+    {loop type="generic" name="my_product_loop" table_name="product" filters="visible:1|virtual:0" orders="created_at:DESC"}
         <li>{$ID} {$TITLE} ({$REF})</li>
     {/loop}
 </ul>
