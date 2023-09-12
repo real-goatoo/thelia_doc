@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkthelia=self.webpackChunkthelia||[]).push([[4713],{3031:a=>{a.exports=JSON.parse('{"label":"facebook","permalink":"/thelia_doc/blog/tags/facebook","allTagsPath":"/thelia_doc/blog/tags","count":1}')}}]);
