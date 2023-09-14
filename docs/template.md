@@ -24,7 +24,7 @@ Like this you can always update Thelia and the defaults templates without loosin
 
 ### Templates structure
 
-Thelia Smarty templates are located in the templates sub-directory.
+Thelia Smarty templates are located in the `templates` subdirectory.
 
 ```
 \templates

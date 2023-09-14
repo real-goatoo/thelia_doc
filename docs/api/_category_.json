@@ -1,0 +1,11 @@
+{
+  "label": "API",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "title": "API",
+    "description": "Since 2.6.0 Thelia provide an admin API. This API is made with ApiPlatform and generate automatically an online documentation.",
+    "slug": "/api",
+    "keywords": ["api"]
+  }
+}
