@@ -1,6 +1,7 @@
 ---
 title: Resources
 sidebar_position: 1
+description: Create Api routes for your models
 ---
 
 In propel, Model are generated automatically as you change your schema, so they can't be used as Api resource directly (like Entity for Doctrine) that's why we have to create a new class for each Propel model we want to be in API.
@@ -16,22 +17,28 @@ In our example we have this schema who generate associate `Store` :
 ```
 
 ## Create your resource
-Your resources must be in the `Api\Resource` directory in your module directory, implements the `Thelia\Api\Resource\PropelResourceInterface` and for convenience you can use (and it's greatly encouraged) the trait `Thelia\Api\Resource\PropelResourceTrait` it provide useful method.
+Your resources must be in the `Api\Resource` directory in your module directory and implements the `Thelia\Api\Resource\PropelResourceInterface` for convenience you can use (and it's greatly encouraged) the trait `Thelia\Api\Resource\PropelResourceTrait`.
 So if we want to add an api crud to our store table we have to create a resource here `local/modules/ApiOverride/Api/Resource/Store.php`
 
 ## Attach propel model
-To tell which model our class represents for that we have the function `getPropelModelClass`.
+To tell which model our class represents for that we have the function `getPropelRelatedTableMap`.
 
 ```php title="local/modules/ApiOverride/Api/Resource/Store.php"
-public static function getPropelModelClass(): string
+public static function getPropelRelatedTableMap(): string
 {
-    return \ApiOverride\Model\Store::class;
+    return new \ApiOverride\Model\Map\StoreTableMap();
 }
 ``` 
 
 ## Define your properties
 You must "redefine" every model properties (with their getters/setters) you want to be accessible from the api.
 
+## Relation between resources
+If a property contain relation to another model you must mark it with the attribute `#[Relation]`.
+
+## Overriding propel setter / getter
+In most case data will be mapped automatically, and you do not have to do anything else.
+But in some case where propel getter and setter doesn't match exactly with field, or if you want to use different name than propel, you can use the `Column` attribute to redefine either directly the fieldname with `$propelFieldName` from here Thelia will try to guess the `getter / setter` just by adding the prefixes `get / set`. But if your `getter / setter` are different you can redefine them with `$propelSetter` and `$propelGetter`.
 
 ## Serialization groups
 To choose where each property are accessible you must define serialization groups, it works exactly like in Api platform, so you can read the doc [here](https://api-platform.com/docs/core/serialization/#using-serialization-groups)
@@ -40,12 +47,6 @@ In Thelia we create 3 base groups for each resource, the read group that contain
 ## Define your routes
 Routes work the same way as Api platform [operations](https://api-platform.com/docs/core/operations/) except you have to be careful with your route prefix if your route must be protected by admin login, you must prefix it by `/api/admin/` and if your route is public you have to only prefix it with `/api` for now there is no way to create a route that is only available for customer, but it's in the roadmap and will come soon.
 
-## Overriding propel setter / getter
-In most case data will be mapped automatically, and you do not have to do anything else. 
-But in some case where propel getter and setter doesn't match exactly with field, or if you want to use different name than propel, you can use the `Column` attribute to redefine either directly the fieldname with `$propelFieldName` from here Thelia will try to guess the `getter / setter` just by adding the prefixes `get / set`. But if your `getter / setter` are different you can redefine them with `$propelSetter` and `$propelGetter`.
-
-## Relation between resources
-If a property contain relation to another model you must mark it with the attribute `#[Relation]`
 
 ## Filters
 To add filter to the Collection route of a resource you must declare them with the attribute `#[ApiFilter]`
